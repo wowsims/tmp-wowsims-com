@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+
+	<body>
+		<script>
+      window.addEventListener('message', message => {
+      	if (message.origin === 'https://wowsims.github.io') {
+          const data = JSON.parse(message.data)
+      		window.localStorage.setItem(data.storageKey, data.storageData);
+      	}
+      });
+    </script>
+	</body>
+</html>
