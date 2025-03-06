@@ -71,6 +71,8 @@
     </div>
     <script>
       window.addEventListener("message", (message) => {
+        document.body.append(message.origin);
+
         if (message.origin !== "https://wowsims.github.io") return;
 
         const data = JSON.parse(message.data);
