@@ -70,12 +70,12 @@
       <img src="/public/chrome-2.png" />
     </div>
     <script>
-      window.addEventListener("message", (message) => {
-        document.body.append(message.origin);
+      window.addEventListener("message", function (event) {
+        document.body.append(event.origin);
 
-        if (message.origin !== "https://wowsims.github.io") return;
+        if (event.origin !== "https://wowsims.github.io") return;
 
-        const data = JSON.parse(message.data);
+        const data = JSON.parse(event.data);
         window.localStorage.setItem(data.storageKey, data.storageData);
 
         document.body.append(data.storageKey + " set to " + data.storageData);
