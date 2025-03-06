@@ -71,10 +71,12 @@
     </div>
     <script>
       window.addEventListener("message", (message) => {
-        if (message.origin === "https://wowsims.github.io") {
-          const data = JSON.parse(message.data);
-          window.localStorage.setItem(data.storageKey, data.storageData);
-        }
+        if (message.origin !== "https://wowsims.github.io") return;
+
+        const data = JSON.parse(message.data);
+        window.localStorage.setItem(data.storageKey, data.storageData);
+
+        document.body.append(data.storageKey + " set to " + data.storageData);
       });
     </script>
   </body>
